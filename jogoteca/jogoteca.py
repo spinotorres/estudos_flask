@@ -26,6 +26,8 @@ def index():
 
 @app.route('/novo')
 def novo():
+    if 'usuario_logado' not in session:
+        return redirect('/login')
     return render_template('novo.html',
                            titulo='Novo Jogo'
                            )
